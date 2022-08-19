@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import { useState, useEffect } from "react";
+import MovieList from "./components/MovieList";
 
 function App() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    fetch("http://www.omdbapi.com/?s=star wars&apikey=72990942")
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.Search) {
+          setMovies(res.Search);
+        }
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid movie-app">
+      <div className="row">
+        <MovieList movies={movies} />
+      </div>
     </div>
   );
 }
