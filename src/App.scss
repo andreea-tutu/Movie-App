@@ -1,11 +1,9 @@
-body {
-	background: #141414;
-	color: #ffffff;
-}
+@import "~bootstrap/scss/bootstrap";
 
 .movie-app {
 	.row{
 	overflow-x: auto;
+	overflow-y: hidden;
 	flex-wrap: nowrap;
 	*{
 		flex-shrink: 1;
@@ -40,5 +38,9 @@ body {
 }
 
 .heart-icon{
+	color: red;
+}
+
+.broken-heart-icon{
 	color: red;
 }

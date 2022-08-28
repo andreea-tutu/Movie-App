@@ -1,46 +1,32 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.scss";
-import { useState, useEffect } from "react";
-import MovieList from "./components/MovieList";
-import MovieListHeader from "./components/MovieListHeader";
-import SearchBox from "./components/SearchBox";
-import AddFavourite from "./components/AddToFavourites";
+import { Routes, Route } from "react-router-dom";
+import TvSeries from "./pages/tv-series/tv-series";
+import Favourites from "./pages/favourites/favourites";
+import MovieFighter from "./pages/movie-fighter/movie-fighter";
+import Movies2 from "./pages/movies/movies";
+import Header from "./components/header/header";
+import Home from "./pages/home/home";
+import ActionMovies from "./pages/movies/actionMovies/actionMovies";
+import Movie from "./pages/home/homeMovies/movie";
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
-  const [favourites, setFavourites] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=72990942`)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.Search) {
-          setMovies(res.Search);
-        }
-      });
-  }, [searchValue]);
-
-  const addFavouriteMovie = (movie)=>{
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
-  }
-
+  //searchValue={searchValue} setSearchValue={setSearchValue}
   return (
     <div className="container-fluid movie-app">
-      <div className="row d-flex align-items-center mt-4 mb-4">
-        <MovieListHeader heading="Movies" />
-        <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
-      </div>
-      <div className="row">
-        <MovieList movies={movies} favouriteComponent={AddFavourite} handleFavouritesClick={addFavouriteMovie}/>
-      </div>
-      <div className="row d-flex align-items-center mt-4 mb-4">
-        <MovieListHeader heading="Favourites"/>
-      </div>
-      <div className="row">
-        <MovieList movies={favourites} favouriteComponent={AddFavourite}/>
-      </div>
+      <Header />
+      <Routes>
+        <Route path="tv-series" element={<TvSeries />} />
+        <Route path="movies2" element={<Movies2 />} />
+
+        <Route path="action" element={<ActionMovies />} />
+
+        <Route path="favourites" element={<Favourites />} />
+        <Route path="movie-fighter" element={<MovieFighter />} />
+        <Route path="home" element={<Home />} />
+        <Route path="home/:movieId" element={<Movie />} />
+        <Route path="" element={<Home />} />
+      </Routes>
     </div>
   );
 }
