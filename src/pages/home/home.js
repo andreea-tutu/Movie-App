@@ -65,7 +65,7 @@ function Home() {
       </div>
       <div className="row">
         <h3>Popular</h3>
-      </div>
+      </div> 
       <div className="row mb-5">
         {popular.map((movie, idx) => {
           return (
@@ -77,9 +77,6 @@ function Home() {
                 <img
                   src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
                   alt={movie.name}
-                  onClick={() => {
-                    handleMovieClick(movie);
-                  }}
                 ></img>
               </Link>
             </div>
@@ -96,6 +93,7 @@ function Home() {
               key={idx}
               className="image-container d-flex justify-content-start m-3"
             >
+              <Link to={`/home/${movie.id}`}>
               <img
                 src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
                 alt={movie.name}
@@ -103,6 +101,7 @@ function Home() {
                   handleMovieClick(movie);
                 }}
               ></img>
+              </Link>
 
               {/* <div
               onClick={() => trending.addFavouriteMovie(movie)}
@@ -124,6 +123,7 @@ function Home() {
               key={idx}
               className="image-container d-flex justify-content-start m-3"
             >
+              <Link to={`/home/${movie.id}`}>
               <img
                 src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
                 alt={movie.name}
@@ -131,6 +131,7 @@ function Home() {
                   handleMovieClick(movie);
                 }}
               ></img>
+              </Link>
             </div>
           );
         })}
@@ -138,13 +139,14 @@ function Home() {
       <div className="row">
         <h3>Top Rated</h3>
       </div>
-      <div className="row mb-5">
+      <div className="row">
         {topRated.map((movie, idx) => {
           return (
             <div
               key={idx}
               className="image-container d-flex justify-content-start m-3"
             >
+              <Link to={`/home/${movie.id}`}>
               <img
                 src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
                 alt={movie.name}
@@ -152,6 +154,7 @@ function Home() {
                   handleMovieClick(movie);
                 }}
               ></img>
+              </Link>
             </div>
           );
         })}

@@ -9,6 +9,7 @@ import Header from "./components/header/header";
 import Home from "./pages/home/home";
 import ActionMovies from "./pages/movies/actionMovies/actionMovies";
 import Movie from "./pages/home/homeMovies/movie";
+import Footer from "./components/footer/footer";
 
 function App() {
   //searchValue={searchValue} setSearchValue={setSearchValue}
@@ -25,8 +26,11 @@ function App() {
         <Route path="movie-fighter" element={<MovieFighter />} />
         <Route path="home" element={<Home />} />
         <Route path="home/:movieId" element={<Movie />} />
+        <Route path="home/favourites" element={<Favourites />} />
+        <Route path="home/home" element={<Home />} />
         <Route path="" element={<Home />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
