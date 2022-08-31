@@ -1,4 +1,4 @@
-import "./actionMovies.scss";
+import "./animationMovies.scss";
 import { Container, Row } from "react-bootstrap";
 import MovieListHeader from "../../../components/MovieListHeader";
 import { useState, useEffect } from "react";
@@ -7,29 +7,29 @@ import { Link } from "react-router-dom";
 
 const API_KEY = "e666a2cfa890d8a2bb19db4ca078ae7f";
 
-function ActionMovies() {
-  const [actionMovies, setActionMovies] = useState([]);
+function AnimationMovies() {
+  const [animationMovies, setAnimationMovies] = useState([]);
 
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=e666a2cfa890d8a2bb19db4ca078ae7f&with_genres=28`,
+        `https://api.themoviedb.org/3/discover/movie?api_key=e666a2cfa890d8a2bb19db4ca078ae7f&with_genres=16`,
         {
           params: {
             api_key: API_KEY,
           },
         }
       )
-      .then((res) => setActionMovies(res.data.results));
+      .then((res) => setAnimationMovies(res.data.results));
   }, []);
 
   return (
-    <Container className="action-movies" fluid>
+    <Container className="animation-movies" fluid>
       <Row>
-        <MovieListHeader heading="Action Movies" />
+        <MovieListHeader heading="Animation Movies" />
       </Row>
 
-      {actionMovies.map((movie, idx) => {
+      {animationMovies.map((movie, idx) => {
         return (
           <Link to={`/home/${movie.id}`}>
             <img
@@ -45,4 +45,4 @@ function ActionMovies() {
   );
 }
 
-export default ActionMovies;
+export default AnimationMovies;
