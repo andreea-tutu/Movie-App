@@ -6,7 +6,7 @@ import MovieFighter from "./pages/movie-fighter/movie-fighter";
 import Header from "./components/header/header";
 import Home from "./pages/home/home";
 import ActionMovies from "./pages/movies/actionMovies/actionMovies";
-import Movie from "./pages/home/homeMovies/movie";
+import Movie from "./pages/movies/movie";
 import Footer from "./components/footer/footer";
 import AdventureMovies from "./pages/movies/adventureMovies/adventureMovies";
 import AnimationMovies from "./pages/movies/animationMovies/animationMovies";
@@ -29,7 +29,6 @@ function App() {
     <div className="container-fluid movie-app">
       <Header />
       <Routes>
-
         <Route path="action" element={<ActionMovies />} />
         <Route path="adventure" element={<AdventureMovies />} />
         <Route path="animation" element={<AnimationMovies />} />
@@ -52,8 +51,8 @@ function App() {
         <Route path="home" element={<Home />} />
         <Route path="home/:movieId" element={<Movie />} />
 
-        <Route path="home/:seriesId" element={<TvSeries />} />
-        
+        <Route path="home/tv/:seriesId" element={<TvSeries />} />
+
         <Route path="home/favourites" element={<Favourites />} />
         <Route path="home/home" element={<Home />} />
         <Route path="" element={<Home />} />

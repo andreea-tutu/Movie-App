@@ -12,11 +12,11 @@ function Favourites(props) {
   const [favourites, setFavourites] = useState([]);
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?s=${searchValue}&apikey=72990942`)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=e666a2cfa890d8a2bb19db4ca078ae7f&query=${searchValue}`)
       .then((res) => res.json())
       .then((res) => {
-        if (res.Search) {
-          setMovies(res.Search);
+        if (res.results) {
+          setMovies(res.results);
         }
       });
   }, [searchValue]);
@@ -43,7 +43,7 @@ function Favourites(props) {
 
   const removeFavouriteMovie = (movie) => {
     const newFavouriteList = favourites.filter(
-      (favourite) => favourite.imdbID !== movie.imdbID
+      (favourite) => favourite.id !== movie.id
     );
     setFavourites(newFavouriteList);
     saveToLocalStorage(newFavouriteList);

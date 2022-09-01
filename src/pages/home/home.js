@@ -12,6 +12,7 @@ const endpoints = {
   trending: "/trending/all/week",
   popular: "/movie/popular",
   top_rated: "/movie/top_rated",
+  upcoming: "/movie/upcoming",
 };
 
 function Home() {
@@ -19,6 +20,7 @@ function Home() {
   const [trending, setTrending] = useState([]);
   const [originals, setOriginals] = useState([]);
   const [topRated, setTopRated] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
 
   useEffect(() => {
     axios
@@ -52,6 +54,14 @@ function Home() {
         },
       })
       .then((res) => setTopRated(res.data.results));
+
+    axios
+      .get(`${URL}${endpoints.upcoming}`, {
+        params: {
+          api_key: API_KEY,
+        },
+      })
+      .then((res) => setUpcoming(res.data.results));
   }, []);
 
   const handleMovieClick = (movie) => {
@@ -65,9 +75,29 @@ function Home() {
       </div>
       <div className="row">
         <h3>Popular</h3>
-      </div> 
+      </div>
       <div className="row mb-5">
         {popular.map((movie, idx) => {
+          return (
+            <div
+              key={idx}
+              className="image-container d-flex justify-content-start m-3"
+            >
+              <Link to={`/home/${movie.id}`}>
+                <img
+                  src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
+                  alt={movie.name}
+                ></img>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
+      <div className="row">
+        <h3>Upcoming</h3>
+      </div>
+      <div className="row mb-5">
+        {upcoming.map((movie, idx) => {
           return (
             <div
               key={idx}
@@ -94,13 +124,13 @@ function Home() {
               className="image-container d-flex justify-content-start m-3"
             >
               <Link to={`/home/${movie.id}`}>
-              <img
-                src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
-                alt={movie.name}
-                onClick={() => {
-                  handleMovieClick(movie);
-                }}
-              ></img>
+                <img
+                  src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
+                  alt={movie.name}
+                  onClick={() => {
+                    handleMovieClick(movie);
+                  }}
+                ></img>
               </Link>
 
               {/* <div
@@ -124,13 +154,13 @@ function Home() {
               className="image-container d-flex justify-content-start m-3"
             >
               <Link to={`/home/${movie.id}`}>
-              <img
-                src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
-                alt={movie.name}
-                onClick={() => {
-                  handleMovieClick(movie);
-                }}
-              ></img>
+                <img
+                  src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
+                  alt={movie.name}
+                  onClick={() => {
+                    handleMovieClick(movie);
+                  }}
+                ></img>
               </Link>
             </div>
           );
@@ -147,13 +177,13 @@ function Home() {
               className="image-container d-flex justify-content-start m-3"
             >
               <Link to={`/home/${movie.id}`}>
-              <img
-                src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
-                alt={movie.name}
-                onClick={() => {
-                  handleMovieClick(movie);
-                }}
-              ></img>
+                <img
+                  src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
+                  alt={movie.name}
+                  onClick={() => {
+                    handleMovieClick(movie);
+                  }}
+                ></img>
               </Link>
             </div>
           );

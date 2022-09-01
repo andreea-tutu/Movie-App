@@ -29,7 +29,7 @@ function DocumentaryTV() {
 
       {documentaryTV.map((tv, idx) => {
         return (
-          <Link to={`/home/${tv.id}`}>
+          <Link to={`/home/tv/${tv.id}`}>
             <img
               src={"https://image.tmdb.org/t/p/w300" + tv.poster_path}
               alt={tv.name}
