@@ -3,12 +3,13 @@ import MovieListHeader from "../../components/MovieListHeader";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Carousel from "react-bootstrap/Carousel";
+import { CarouselItem } from "react-bootstrap";
 
 const URL = "https://api.themoviedb.org/3";
 const API_KEY = "e666a2cfa890d8a2bb19db4ca078ae7f";
 
 const endpoints = {
-  originals: "/discover/tv",
   trending: "/trending/all/week",
   popular: "/movie/popular",
   top_rated: "/movie/top_rated",
@@ -18,7 +19,6 @@ const endpoints = {
 function Home() {
   const [popular, setPopular] = useState([]);
   const [trending, setTrending] = useState([]);
-  const [originals, setOriginals] = useState([]);
   const [topRated, setTopRated] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
 
@@ -38,14 +38,6 @@ function Home() {
         },
       })
       .then((res) => setTrending(res.data.results));
-
-    axios
-      .get(`${URL}${endpoints.originals}`, {
-        params: {
-          api_key: API_KEY,
-        },
-      })
-      .then((res) => setOriginals(res.data.results));
 
     axios
       .get(`${URL}${endpoints.top_rated}`, {
@@ -73,6 +65,45 @@ function Home() {
       <div className="row d-flex align-items-center mt-4 mb-4">
         <MovieListHeader heading="Home" />
       </div>
+
+      <Carousel fade>
+        <CarouselItem interval={3000}>
+          <img
+            className="d-block mx-auto w-50"
+            src="https://image.tmdb.org/t/p/w1280/vvObT0eIWGlArLQx3K5wZ0uT812.jpg"
+            alt="First Slide"
+          />
+        </CarouselItem>
+        <CarouselItem interval={3000}>
+          <img
+            className="d-block mx-auto w-50"
+            src="https://image.tmdb.org/t/p/w1280/9n5e1vToDVnqz3hW10Jdlvmzpo0.jpg"
+            alt="Second Slide"
+          />
+        </CarouselItem>
+        <CarouselItem interval={3000}>
+          <img
+            className="d-block mx-auto w-50"
+            src="https://image.tmdb.org/t/p/w1280/jauI01vUIkPA0xVsamGj0Gs1nNL.jpg"
+            alt="Third Slide"
+          />
+        </CarouselItem>
+        <CarouselItem interval={3000}>
+          <img
+            className="d-block mx-auto w-50"
+            src="https://image.tmdb.org/t/p/w1280/nmGWzTLMXy9x7mKd8NKPLmHtWGa.jpg"
+            alt="Fourth Slide"
+          />
+        </CarouselItem>
+        <CarouselItem interval={3000}>
+          <img
+            className="d-block mx-auto w-50"
+            src="https://image.tmdb.org/t/p/w1280/wcKFYIiVDvRURrzglV9kGu7fpfY.jpg"
+            alt="Fifth Slide"
+          />
+        </CarouselItem>
+      </Carousel>
+
       <div className="row">
         <h3>Popular</h3>
       </div>
@@ -118,36 +149,6 @@ function Home() {
       </div>
       <div className="row mb-5">
         {trending.map((movie, idx) => {
-          return (
-            <div
-              key={idx}
-              className="image-container d-flex justify-content-start m-3"
-            >
-              <Link to={`/home/${movie.id}`}>
-                <img
-                  src={"https://image.tmdb.org/t/p/w300" + movie.poster_path}
-                  alt={movie.name}
-                  onClick={() => {
-                    handleMovieClick(movie);
-                  }}
-                ></img>
-              </Link>
-
-              {/* <div
-              onClick={() => trending.addFavouriteMovie(movie)}
-              className="overlay d-flex align-items-center justify-content-center"
-            >
-              <AddFavourite />
-            </div> */}
-            </div>
-          );
-        })}
-      </div>
-      <div className="row">
-        <h3>Originals</h3>
-      </div>
-      <div className="row mb-5">
-        {originals.map((movie, idx) => {
           return (
             <div
               key={idx}

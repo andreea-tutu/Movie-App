@@ -33,7 +33,7 @@ function Movie() {
         },
       })
       .then((res) => setSimilar(res.data.results));
-  }, []);
+  }, [movieId]);
 
   return (
     <div className="container-fluid movie-page">
@@ -57,11 +57,11 @@ function Movie() {
                     {Math.round(movie.vote_average)}/<strong>10</strong>
                   </p>
                 </div>
-                <ul>
+                {/* <ul>
                   <li>test1</li>
                   <li>test2</li>
                   <li>test3</li>
-                </ul>
+                </ul> */}
                 <p>{movie.overview}</p>
                 <div className="details">
                   <h3>Details</h3>
@@ -70,30 +70,29 @@ function Movie() {
                 </div>
               </Col>
             </Row>
-            </Container>
-            <Row className="mt-3">
-              <h2>Similar</h2>
-            </Row>
-            <Row>
-              {similar.map((movie, idx) => {
-                return (
-                  <div
-                    key={idx}
-                    className="image-container d-flex justify-content-start m-3"
-                  >
-                    <Link to={`/home/${movie.id}`}>
-                      <img
-                        src={
-                          "https://image.tmdb.org/t/p/w300" + movie.poster_path
-                        }
-                        alt={movie.name}
-                      ></img>
-                    </Link>
-                  </div>
-                );
-              })}
-            </Row>
-          
+          </Container>
+          <Row className="mt-3">
+            <h2>Similar</h2>
+          </Row>
+          <Row>
+            {similar.map((movie, idx) => {
+              return (
+                <div
+                  key={idx}
+                  className="image-container d-flex justify-content-start m-3"
+                >
+                  <Link to={`/home/${movie.id}`}>
+                    <img
+                      src={
+                        "https://image.tmdb.org/t/p/w300" + movie.poster_path
+                      }
+                      alt={movie.name}
+                    ></img>
+                  </Link>
+                </div>
+              );
+            })}
+          </Row>
         </>
       )}
     </div>

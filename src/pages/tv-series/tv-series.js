@@ -46,7 +46,7 @@ function TvSeries() {
         },
       })
       .then((res) => setSimilar(res.data.results));
-  }, []);
+  }, [seriesId]);
 
   return (
     <div className="tv-page">
@@ -70,11 +70,11 @@ function TvSeries() {
                     {Math.round(tvSeries.vote_average)}/<strong>10</strong>
                   </p>
                 </div>
-                <ul>
+                {/* <ul>
                   <li>test1</li>
                   <li>test2</li>
                   <li>test3</li>
-                </ul>
+                </ul> */}
                 <p>{tvSeries.overview}</p>
                 <div className="details">
                   <h3>Details</h3>
@@ -96,7 +96,7 @@ function TvSeries() {
                   key={idx}
                   className="image-container d-flex justify-content-start m-3"
                 >
-                  <Link to={`/home/${tvSeries.id}`}>
+                  <Link to={`/home/tv/${tvSeries.id}`}>
                     <img
                       src={
                         "https://image.tmdb.org/t/p/w300" + tvSeries.poster_path

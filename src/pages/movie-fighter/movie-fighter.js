@@ -1,13 +1,17 @@
 import "./movie-fighter.scss";
-import {Container, Row, Col} from "react-bootstrap";
+import {Container, Row, Image} from "react-bootstrap";
+import capture from "./Capture.PNG"
 
 function MovieFighter() {
   return (
     <Container fluid className="movie-fighter-page">
-      <Row >
-        <Col md={{ span: 3, offset: 2 }}>1 of 2</Col>
-        <Col md={{ span: 2, offset: 2 }}>2 of 2</Col>
+      <Row className="movie-row">
+        <h2>Comming soon...</h2>
       </Row>
+      <Row className="movie-row">
+      <Image src={capture} alt="Movie Fight"></Image>
+      </Row>
+      
     </Container>
   );
 }
