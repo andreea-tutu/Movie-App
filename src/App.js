@@ -53,10 +53,10 @@ function App() {
 
         <Route path="home/tv/:seriesId" element={<TvSeries />} />
 
-        {/* <Route path="home/favourites" element={<Favourites />} />
+        <Route path="home/favourites" element={<Favourites />} />
         <Route path="home/home" element={<Home />} />
         <Route path="Movie-App" element={<Home />} />
-        <Route path="" element={<Home />} /> */}
+        <Route path="" element={<Home />} />
       </Routes>
       <Footer />
     </div>
