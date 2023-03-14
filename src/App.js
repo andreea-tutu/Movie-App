@@ -24,39 +24,39 @@ import MysteryTV from "./pages/tv-series/mysteryTV/mysteryTV";
 import RealityTV from "./pages/tv-series/realityTV/RealityTV";
 import TvSeries from "./pages/tv-series/tv-series";
 
-function App() {
+function App() { 
   return (
     <div className="container-fluid movie-app">
       <Header />
       <Routes>
-        <Route path="action" element={<ActionMovies />} />
-        <Route path="adventure" element={<AdventureMovies />} />
-        <Route path="animation" element={<AnimationMovies />} />
-        <Route path="comedy" element={<ComedyMovies />} />
-        <Route path="family" element={<FamilyMovies />} />
-        <Route path="fantasy" element={<FantasyMovies />} />
-        <Route path="horror" element={<HorrorMovies />} />
-        <Route path="thriller" element={<ThrillerMovies />} />
+        <Route path="/action" element={<ActionMovies />} />
+        <Route path="/adventure" element={<AdventureMovies />} />
+        <Route path="/animation" element={<AnimationMovies />} />
+        <Route path="/comedy" element={<ComedyMovies />} />
+        <Route path="/family" element={<FamilyMovies />} />
+        <Route path="/fantasy" element={<FantasyMovies />} />
+        <Route path="/horror" element={<HorrorMovies />} />
+        <Route path="/thriller" element={<ThrillerMovies />} />
 
-        <Route path="actionTV" element={<ActionTV />} />
-        <Route path="animationTV" element={<AnimationTV />} />
-        <Route path="comedyTV" element={<ComedyTV />} />
-        <Route path="documentaryTV" element={<DocumentaryTV />} />
-        <Route path="familyTV" element={<FamilyTV />} />
-        <Route path="mysteryTV" element={<MysteryTV />} />
-        <Route path="realityTV" element={<RealityTV />} />
+        <Route path="/actionTV" element={<ActionTV />} />
+        <Route path="/animationTV" element={<AnimationTV />} />
+        <Route path="/comedyTV" element={<ComedyTV />} />
+        <Route path="/documentaryTV" element={<DocumentaryTV />} />
+        <Route path="/familyTV" element={<FamilyTV />} />
+        <Route path="/mysteryTV" element={<MysteryTV />} />
+        <Route path="/realityTV" element={<RealityTV />} />
 
-        <Route path="favourites" element={<Favourites />} />
-        <Route path="movie-fighter" element={<MovieFighter />} />
-        <Route path="home" element={<Home />} />
-        <Route path="home/:movieId" element={<Movie />} />
+        <Route path="/favourites" element={<Favourites />} />
+        <Route path="/movie-fighter" element={<MovieFighter />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/home/:movieId" element={<Movie />} />
 
-        <Route path="home/tv/:seriesId" element={<TvSeries />} />
+        <Route path="/home/tv/:seriesId" element={<TvSeries />} />
 
-        <Route path="home/favourites" element={<Favourites />} />
-        <Route path="home/home" element={<Home />} />
-        <Route path="Movie-App" element={<Home />} />
-        <Route path="" element={<Home />} />
+        <Route path="/home/favourites" element={<Favourites />} />
+        <Route path="/home/home" element={<Home />} />
+        <Route path="/Movie-App" element={<Home />} />
+        <Route path="/" element={<Home />} />
       </Routes>
       <Footer />
     </div>

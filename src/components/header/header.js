@@ -116,10 +116,10 @@ function Header(props) {
               </NavDropdown>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/favourites">My Favourites</Nav.Link>
+              <Nav.Link href="/#/favourites">My Favourites</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/movie-fighter">Movie Fight</Nav.Link>
+              <Nav.Link href="/#/movie-fighter">Movie Fight</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Form inline>
