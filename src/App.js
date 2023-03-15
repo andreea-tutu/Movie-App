@@ -24,7 +24,7 @@ import MysteryTV from "./pages/tv-series/mysteryTV/mysteryTV";
 import RealityTV from "./pages/tv-series/realityTV/RealityTV";
 import TvSeries from "./pages/tv-series/tv-series";
 
-function App() { 
+function App() {
   return (
     <div className="container-fluid movie-app">
       <Header />

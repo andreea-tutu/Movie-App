@@ -16,7 +16,9 @@ function Header(props) {
         <Navbar.Collapse id="navbar-dark-example">
           <Nav className="w-100 nav-justified" fill variant="tabs">
             <Nav.Item>
-              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link as={Link} to="/home">
+                Home
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <NavDropdown title="Movies" id="navbar-dark-example">
@@ -116,10 +118,14 @@ function Header(props) {
               </NavDropdown>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/#/favourites">My Favourites</Nav.Link>
+              <Nav.Link as={Link} to="/favourites">
+                My Favourites
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/#/movie-fighter">Movie Fight</Nav.Link>
+              <Nav.Link as={Link} to="/movie-fighter">
+                Movie Fight
+              </Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Form inline>
