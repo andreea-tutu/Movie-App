@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 import Favourites from "./pages/favourites/favourites";
-import MovieFighter from "./pages/movie-fighter/movie-fighter";
+// import MovieFighter from "./pages/movie-fighter-soon/movie-fighter";
 import Header from "./components/header/header";
 import Home from "./pages/home/home";
 import ActionMovies from "./pages/movies/actionMovies/actionMovies";
@@ -23,6 +23,7 @@ import FamilyTV from "./pages/tv-series/familyTV/familyTV";
 import MysteryTV from "./pages/tv-series/mysteryTV/mysteryTV";
 import RealityTV from "./pages/tv-series/realityTV/RealityTV";
 import TvSeries from "./pages/tv-series/tv-series";
+import RedirectPage from "./components/redirect";
 
 function App() {
   return (
@@ -47,7 +48,11 @@ function App() {
         <Route path="/realityTV" element={<RealityTV />} />
 
         <Route path="/favourites" element={<Favourites />} />
-        <Route path="/movie-fighter" element={<MovieFighter />} />
+
+        {/* <Route path="/movie-fighter" element={<MovieFighter />} /> */}
+
+        <Route path="/movie-fighter" element={<RedirectPage/>}/>
+
         <Route path="/home" element={<Home />} />
         <Route path="/home/:movieId" element={<Movie />} />
 

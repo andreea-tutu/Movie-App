@@ -8,7 +8,7 @@ function Header(props) {
   return (
     <Navbar className="darkCustom" expand="lg" variant="dark" sticky="top">
       <Container>
-        <Navbar.Brand className="brand" href="home">
+        <Navbar.Brand as={Link} to="/home"  className="brand" href="home">
           <FontAwesomeIcon icon={faFilm} pull="left" />
           Movie Time
         </Navbar.Brand>
